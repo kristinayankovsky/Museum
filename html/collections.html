@@ -5,20 +5,305 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <meta name="description" content="Museum of History — Collections" />
   <meta name="author" content="Kristina Yankovsky" />
-  <meta name="keywords" content="museum, staff, archaeology, anthropology, interpretation" />
+  <meta name="keywords" content="museum, collections, archaeology, anthropology, interpretation" />
   <meta name="project" content="Museum of History - Academic Project" />
   <link rel="stylesheet" href="../css/style.css" />
   <meta name="robots" content="noindex, nofollow">
   <title>Collections — Museum of History</title>
+  <style>
+    
+    body {
+      background-color: #f5f7fa;
+      color: #222;
+      font-family: 'Segoe UI', Arial, sans-serif;
+    }
+
+    header {
+      background-color: #394b5a;
+      color: white;
+      text-align: center;
+      padding: 2rem 1rem;
+    }
+
+    header h1 {
+      margin-bottom: 1rem;
+      font-size: 2rem;
+    }
+
+    nav {
+      margin-bottom: 1rem;
+    }
+
+    nav button {
+      background-color: #607d8b;
+      color: white;
+      border: none;
+      padding: 0.6rem 1.2rem;
+      margin: 0.3rem;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: 600;
+    }
+
+    nav button:hover {
+      background-color: #455a64;
+    }
+
+    .submenu {
+      text-align: center;
+      margin: 1.5rem 0;
+    }
+
+    .submenu button {
+      background-color: #90a4ae;
+      border: none;
+      padding: 0.5rem 1rem;
+      margin: 0.4rem;
+      border-radius: 6px;
+      color: white;
+      cursor: pointer;
+    }
+
+    .submenu button:hover {
+      background-color: #78909c;
+    }
+
+    .disclaimer {
+      font-style: italic;
+      text-align: center;
+      color: #555;
+      margin: 1rem 0 2rem 0;
+    }
+
+    .collection-section {
+      width: 85%;
+      max-width: 1100px;
+      margin: 0 auto 3rem auto;
+    }
+
+    .collection-section h1 {
+      font-size: 1.8rem;
+      color: #1a237e;
+      border-bottom: 3px solid #c5cae9;
+      padding-bottom: 0.4rem;
+      margin-bottom: 2rem;
+    }
+
+    .collection-item {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      margin-bottom: 3rem;
+      border-bottom: 1px solid #ccc;
+      padding-bottom: 2rem;
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .artifact-img {
+      width: 320px;
+      height: auto;
+      object-fit: cover;
+      border-radius: 10px;
+      margin: 1rem;
+    }
+
+    .artifact-details {
+      flex: 1;
+      min-width: 280px;
+      padding: 1rem;
+      line-height: 1.6;
+    }
+
+    .artifact-details strong {
+      color: #1a237e;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background-color: #394b5a;
+      color: white;
+      font-size: 0.9rem;
+    }
+  </style>
 </head>
+
 <body>
-    <header class="hero small-hero">
-    <div class="hero-inner">
-      <h1 class="site-title">Collections</h1>
-      <nav class="page-nav" aria-label="Primary">
-        <a href="../index.html">Home</a>
-        <a href="staff.html" class="active">Staff</a>
-        <a href="collections.html">Collections</a>
-      </nav>
-    </div>
+    <header>
+    <h1>Museum of History</h1>
+    <nav>
+      <button onclick="location.href='../index.html'">Home</button>
+      <button onclick="location.href='staff.html'">Staff</button>
+      <button onclick="location.href='collections.html'">Collections</button>
+      <button onclick="location.href='login.html'">Login</button>
+    </nav>
   </header>
+
+  <div class="submenu">
+    <button onclick="showSection('archaeology')">Archaeology</button>
+    <button onclick="showSection('anthropology')">Anthropology</button>
+  </div>
+  <main>
+    
+    <section id="archaeology" class="collections-section">
+      <h1>Archaeology</h1>
+
+      
+      <div class="collections-item">
+        <img src="../images/collections/rusted-spear.jpg" alt="Rusted Iron Spearhead" class="artifact-img" />
+
+        <div class="artifact-details">
+          <h2>Rusted Iron Spearhead</h2>
+          <p><strong>Material:</strong> Pure Iron with trace elements of other metals (Iron)</p>
+          <p><strong>Size/Weight/Shape:</strong> 25 cm, tapered, 300 grams</p>
+          <p><strong>Estimated Age:</strong> ~1,600 years (Late Middle Ages)</p>
+          <p><strong>Preservation State:</strong> Corroded with flaking rust</p>
+          <p><strong>Location Found:</strong> Markovan battlefield, Ravni Plain (45.267 N, 21.902 E)</p>
+          <p><strong>Likely Purpose:</strong> Combat weapon</p>
+          <p><strong>Evidence of Use:</strong> Damage around tip and along edge</p>
+          <p><strong>Manufacture Clues:</strong>Forged with central ridge and notched base</p>
+          <p><strong>Found With:</strong> Charred wood, and leather fragments</p>
+          <p><strong>Burial or Habitat Context:</strong> Scattered at former settlement</p>
+          <p><strong>Symbolism:</strong> Associated with medieval knights  </p>
+          <p><strong>Comparison:</strong> Resembles spears from Markovic site</p>
+        </div>
+      </div>
+
+      
+      <div class="collection-item">
+        <img src="../images/collections/old-jewel.jpg" alt="Medieval Pendant" class="artifact-img" />
+
+        <div class="artifact-details">
+          <h2>Medieval Sapphire Pendant</h2>
+          <p><strong>Material:</strong> Gold encrusted with rubies, and a showstopper sapphire</p>
+          <p><strong>Size/Weight/Shape:</strong> 6 cm diameter, oval pendant</p>
+          <p><strong>Estimated Age:</strong> ~170 years </p>
+          <p><strong>Preservation State:</strong> Tarnished gold surface, intact form</p>
+          <p><strong>Location Found:</strong> Castle ruins, Vienna, Austria></p>
+          <p><strong>Likely Purpose:</strong> Personal ornament, possibly worn by royalty</p>
+          <p><strong>Evidence of Use:</strong> Worn around edges, tarnished surface</p>
+          <p><strong>Manufacture Clues:</strong> Strong engraved features, historic masonary</p>
+          <p><strong>Found With:</strong>Tattered embriodered cloth, and other historic Austrian Jewels</p>
+          <p><strong>Burial or Habitat Context:</strong> Recovered from Castle ruins</p>
+          <p><strong>Symbolism:</strong> Strong masonary, and engravings, likely to present status</p>
+          <p><strong>Comparison:</strong> Resembles pendants from neighboring region (Prussia)</p>
+        </div>
+      </div>
+
+      
+      <div class="collection-item">
+        <img src="../images/collections/rusty-sword.jpg" alt="Ancient Rusted Sword with Weathered Handle" class="artifact-img" />
+
+        <div class="artifact-details">
+          <h2>Rusted Sword</h2>
+          <p><strong>Material:</strong> Purely Iron/p>
+          <p><strong>Size/Weight/Shape:</strong> 30 cm tall, 12 cm diameter</p>
+          <p><strong>Estimated Age:</strong> 1,600 years</p>
+          <p><strong>Preservation State:</strong> severe rust due to purity of element, surface weathered, overall shape preserved</p>
+          <p><strong>Location Found:</strong> Northern France</p>
+          <p><strong>Likely Purpose:</strong> Defence from wars/ status</p>
+          <p><strong>Evidence of Use:</strong> Chipped sides, strong weathering</p>
+          <p><strong>Manufacture Clues:</strong> Hand hammered and fired with unique masonary skills</p>
+          <p><strong>Found With:</strong> Metal armor fragments</p>
+          <p><strong>Burial or Habitat Context:</strong> Burial with armor pieces in thick layers of dirt indicating a burial plot for a knight</p>
+          <p><strong>Symbolism:</strong> Longsword symbolize knighthood</p>
+          <p><strong>Comparison:</strong> Similar artifact was found in Markovic site</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="anthropology" class="collection-section" style="display:none;">
+      <h1>Anthropology</h1>
+
+      
+      <div class="collection-item">
+        <img src="../images/collections/horse-skull.jpg" alt="Weathered Horse Skull" class="artifact-img" />
+
+        <div class="artifact-details">
+          <h2>Horse Skull</h2>
+          <p><strong>Material:</strong> Animal Bone</p>
+          <p><strong>Size/Weight/Shape:</strong> 50cm, animal shaped</p>
+          <p><strong>Estimated Age:</strong> 1,600 years</p>
+          <p><strong>Preservation State:</strong> Excellent bone preservation, all teeth intact</p>
+          <p><strong>Location Found:</strong> Hilltop burial mound, Austria site</p>
+          <p><strong>Likely Purpose:</strong> Used as transportation among the Medieval Ages</p>
+          <p><strong>Evidence of Use:</strong> Indication of a arrow like crack, likely resulted from a war</p>
+          <p><strong>Manufacture Clues:</strong> Organic</p>
+          <p><strong>Found With:</strong> Metal fragments</p>
+          <p><strong>Burial or Habitat Context:</strong> Humanized burial, beneath layers of dirt</p>
+          <p><strong>Symbolism:</strong> Represents the importance of horses and transportation among past civilivations</p>
+          <p><strong>Comparison:</strong> Identical finds among the same era</p>
+        </div>
+      </div>
+
+      
+      <div class="collection-item">
+        <img src="../images/collections/corset-busk.jpg" alt="Ancient Bone Carved Corset Busk" class="artifact-img" />
+
+        <div class="artifact-details">
+          <h2>Hand Carved Bone Corset Busk</h2>
+          <p><strong>Material:</strong> Animal bone</p>
+          <p><strong>Size/Weight/Shape:</strong> around 12 in/ oval shape</p>
+          <p><strong>Estimated Age:</strong> 1,500 years</p>
+          <p><strong>Preservation State:</strong> Perfect preservation, slight wear </p>
+          <p><strong>Location Found:</strong> Castle ruins, Spain</p>
+          <p><strong>Likely Purpose:</strong> Clothing, ceremonial use</p>
+          <p><strong>Evidence of Use:</strong> Signs of wear, and symbolic carving</p>
+          <p><strong>Manufacture Clues:</strong> Hand-carved with a etching tool</p>
+          <p><strong>Found With:</strong> Wooden comb</p>
+          <p><strong>Burial or Habitat Context:</strong> Found in a chest, excellent preservation</p>
+          <p><strong>Symbolism:</strong> In medieval times corsets where the fashion, a busk was often placed in front of the corset to stablize oneself,
+           also was used in secret romances as a lady would only give their busk to a romatic partner for them to etch</p>
+          <p><strong>Comparison:</strong> Similar textile style from similar times</p>
+        </div>
+      </div>
+
+      
+      <div class="collection-item">
+        <img src="../images/collections/worn-trumpet.jpg" alt="Worn Brass Trumpet" class="artifact-img" />
+
+        <div class="artifact-details">
+          <h2>Brass Trumpet</h2>
+          <p><strong>Material:</strong> Polished Brass </p>
+          <p><strong>Size/Weight/Shape:</strong> 40 cm tall</p>
+          <p><strong>Estimated Age:</strong> 1,000</p>
+          <p><strong>Preservation State:</strong> Minor erosion, features clear</p>
+          <p><strong>Location Found:</strong> England castle ruins</p>
+          <p><strong>Likely Purpose:</strong> Entertainment, musical instrument</p>
+          <p><strong>Evidence of Use:</strong> very tarnished traces along mouth</p>
+          <p><strong>Manufacture Clues:</strong> cast polished using masonary techniques</p>
+          <p><strong>Found With:</strong>  pottery shards</p>
+          <p><strong>Burial or Habitat Context:</strong> Found in sealed chest</p>
+          <p><strong>Symbolism:</strong> Believed to represent musical notes and to announce Events</p>
+          <p><strong>Comparison:</strong> Similar artifacts from the medieval era</p>
+        </div>
+      </div>
+    </section>
+  
+
+  <section class="bottom-field panel" style="margin-top:28px;">
+      <p><em>This is a fictitious website created purely for academic purposes.</em> All images were generated with AI and curated, edited, and validated by a human.</p>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; Museum of History — Collections</p>
+  </footer>
+
+  <script>
+    function showSection(section) {
+      const sections = document.querySelectorAll('.collection-section');
+      sections.forEach(s => s.style.display = 'none');
+      document.getElementById(section).style.display = 'block';
+    }
+  </script>
+
+
+  
+  
+</body>
+</html>
+
