@@ -152,7 +152,7 @@
     <h2>Souvenir Shop</h2>
     <div class="shop-container">
 
-    <!-- ITEM 1 -->
+
     <div class="souvenir-item" title="Bone Corset Busk Replica">
       <input type="hidden" value="item001">
       <img src="../images/collections/corset-busk.jpg" alt="Corset busk" onclick="openModal(this)">
@@ -162,7 +162,7 @@
       <button onclick="addToCart('Bone Corset Busk Replica')">Add Bone Corset Busk to Cart</button>
     </div>
 
-    <!-- ITEM 2 -->
+
     <div class="souvenir-item" title="Sapphire Pendant">
       <input type="hidden" value="item002">
       <img src="../images/collections/old-jewel.jpg" alt="Old Pendant" onclick="openModal(this)">
@@ -172,7 +172,7 @@
       <button onclick="addToCart('Sapphire Pendant')">Add Sapphire Pendant to Cart</button>
     </div>
 
-    <!-- ITEM 3 -->
+    
     <div class="souvenir-item" title="Rusted Iron Spear">
       <input type="hidden" value="item003">
       <img src="../images/collections/rusted-spear.jpg" alt="Metal Spear" onclick="openModal(this)">
@@ -182,7 +182,7 @@
       <button onclick="addToCart('Rusted Iron Spear')">Add Rusted Iron Spear to Cart</button>
     </div>
 
-    <!-- ITEM 4 -->
+   
     <div class="souvenir-item" title="Brass Trumpet">
       <input type="hidden" value="item004">
       <img src="../images/collections/worn-trumpet.jpg" alt="Medieval Brass Trumpet" onclick="openModal(this)">
@@ -194,7 +194,7 @@
 
   </div>
 
-  <!-- MODAL -->
+
   <div id="imageModal" class="modal">
     <div class="modal-content">
       <span class="close-modal" onclick="closeModal()">&times;</span>
@@ -219,7 +219,6 @@
       alert(itemName + " added to cart!");
     }
 
-    // Close modal when clicking outside
     window.onclick = function(event) {
       const modal = document.getElementById('imageModal');
       if (event.target === modal) {
@@ -227,6 +226,15 @@
       }
     }
   </script>
+    <section class="bottom-field panel" style="margin-top:28px;">
+      <p><em>This is a fictitious website created purely for academic purposes.</em> The images were generated with AI and curated, edited, and validated by a human.</p>
+    </section>
+
+ 
+
+  <footer class="site-footer">
+    <p>&copy; Museum of History — Staff Directory</p>
+  </footer>
 </body>
 </html>
   
