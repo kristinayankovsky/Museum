@@ -2,164 +2,75 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="author" content="Kristina Yankovsky" />
-  <link rel="stylesheet" href="../css/style.css" />
-  <meta name="robots" content="noindex, nofollow">
+  <meta name="robots" content="noindex, nofollow" />
   <title>Museum Souvenir Shop</title>
- 
-  <style>
-    .souvenir-item {
-      width: 250px;
-      background-color: #ffffff;
-      border: 2px solid #222;
-      padding: 10px;
-      border-radius: 6px;
-      position: relative;
-      transition: transform 0.2s;
-    }
-
-    .souvenir-item:hover {
-      transform: scale(1.03);
-    }
-
-    .souvenir-item img {
-      width: 100%;
-      height: auto;
-      cursor: pointer;
-      border-radius: 4px;
-    }
-
-    .souvenir-item h3 {
-      font-size: 1.1em;
-      margin: 0.5em 0;
-    }
-
-    .souvenir-item p {
-      font-size: 0.9em;
-      color: #333;
-    }
-
-    .souvenir-item .price {
-      font-weight: bold;
-      margin-top: 5px;
-    }
-
-    .souvenir-item button {
-      margin-top: 10px;
-      width: 100%;
-      padding: 8px;
-      font-weight: bold;
-      background-color: #30336b;
-      color: white;
-      border: none;
-      cursor: pointer;
-      border-radius: 4px;
-    }
-
-    .souvenir-item button:hover {
-      background-color: #130f40;
-    }
-
-    /* Modal Styles */
-    .modal {
-      display: none;
-      position: fixed;
-      z-index: 9999;
-      left: 0;
-      top: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0,0,0,0.8);
-    }
-
-    .modal-content {
-      margin: 5% auto;
-      padding: 20px;
-      background-color: #fff;
-      width: 60%;
-      border-radius: 8px;
-      position: relative;
-    }
-
-    .modal-content img {
-      width: 100%;
-      height: auto;
-      border-radius: 6px;
-    }
-
-    .close-modal {
-      position: absolute;
-      right: 15px;
-      top: 10px;
-      font-size: 1.5rem;
-      cursor: pointer;
-      color: #333;
-    }
-  </style>
+  <link rel="stylesheet" href="../css/style.css" />
 </head>
 
 <body>
 
-    <header>
-    <h1>Museum of History</h1>
-    <nav>
-      <button onclick="location.href='../index.html'">Home</button>
-      <button onclick="location.href='staff.html'">Staff</button>
-      <button onclick="location.href='collections.html'">Collections</button>
-      <button onclick="location.href='login.html'">Login</button>
-      <button onclick="location.href='shop.html'">Shop</button>
+  <header class="hero small-hero">
+    <h1 class="site-title">Museum of History</h1>
+    <nav class="page-nav">
+      <a href="../index.html">Home</a>
+      <a href="staff.html">Staff</a>
+      <a href="collections.html">Collections</a>
+      <a href="login.html">Login</a>
+      <a href="shop.html" class="active">Shop</a>
     </nav>
   </header>
 
+ 
+  <main class="container">
+    <section class="panel">
+      <h2 style="color: var(--accent); margin-bottom: 20px;">Souvenir Shop</h2>
 
-  
-    <h2>Souvenir Shop</h2>
-    <div class="shop-container">
+      <div class="three-cols">
+       
+        <div class="souvenir-item panel">
+          <img src="../images/collections/corset-busk.jpg" alt="Corset busk" onclick="openModal(this)">
+          <h3>Bone Corset Busk Replica</h3>
+          <p>From the Anthropology Collection — Discovered near castle ruins, made from carved and engraved bone.</p>
+          <p class="price">$100.99</p>
+          <button onclick="addToCart('Bone Corset Busk Replica')">Add to Cart</button>
+        </div>
 
+       
+        <div class="souvenir-item panel">
+          <img src="../images/collections/old-jewel.jpg" alt="Old Pendant" onclick="openModal(this)">
+          <h3>Sapphire Pendant</h3>
+          <p>Inspired by artifacts from the Archaeology Collection, specifically the "Medieval Sapphire Pendant".</p>
+          <p class="price">$140.50</p>
+          <button onclick="addToCart('Sapphire Pendant')">Add to Cart</button>
+        </div>
 
-    <div class="souvenir-item" title="Bone Corset Busk Replica">
-      <input type="hidden" value="item001">
-      <img src="../images/collections/corset-busk.jpg" alt="Corset busk" onclick="openModal(this)">
-      <h3>Bone Corset Busk Replica</h3>
-      <p>From the Anthropology Collection — Discovered near castle ruins, made from carved and engraved bone.</p>
-      <p class="price">$100.99</p>
-      <button onclick="addToCart('Bone Corset Busk Replica')">Add Bone Corset Busk to Cart</button>
-    </div>
+      
+        <div class="souvenir-item panel">
+          <img src="../images/collections/rusted-spear.jpg" alt="Metal Spear" onclick="openModal(this)">
+          <h3>Rusted Iron Spear</h3>
+          <p>Archaeology Collection — Replica of medieval spears used by knights.</p>
+          <p class="price">$50.75</p>
+          <button onclick="addToCart('Rusted Iron Spear')">Add to Cart</button>
+        </div>
 
+        <div class="souvenir-item panel">
+          <img src="../images/collections/worn-trumpet.jpg" alt="Medieval Brass Trumpet" onclick="openModal(this)">
+          <h3>Brass Trumpet</h3>
+          <p>From the Anthropology Collection — A replica model of a medieval brass trumpet.</p>
+          <p class="price">$29.95</p>
+          <button onclick="addToCart('Brass Trumpet')">Add to Cart</button>
+        </div>
+      </div>
+    </section>
 
-    <div class="souvenir-item" title="Sapphire Pendant">
-      <input type="hidden" value="item002">
-      <img src="../images/collections/old-jewel.jpg" alt="Old Pendant" onclick="openModal(this)">
-      <h3>Sapphire Pendant</h3>
-      <p>Inspired by artifacts from the Archaelogy Collection, specifically the "Medieval Sapphire Pendant".</p>
-      <p class="price">$140.50</p>
-      <button onclick="addToCart('Sapphire Pendant')">Add Sapphire Pendant to Cart</button>
-    </div>
+    <section class="bottom-field panel">
+      <p><em>This is a fictitious website created purely for academic purposes.</em> The images were generated with AI and curated, edited, and validated by a human.</p>
+    </section>
+  </main>
 
-    
-    <div class="souvenir-item" title="Rusted Iron Spear">
-      <input type="hidden" value="item003">
-      <img src="../images/collections/rusted-spear.jpg" alt="Metal Spear" onclick="openModal(this)">
-      <h3>Rusted Iron Spear</h3>
-      <p>Archaelogy Collection — Replica of Medieval spears used by knights.</p>
-      <p class="price">$50.75</p>
-      <button onclick="addToCart('Rusted Iron Spear')">Add Rusted Iron Spear to Cart</button>
-    </div>
-
-   
-    <div class="souvenir-item" title="Brass Trumpet">
-      <input type="hidden" value="item004">
-      <img src="../images/collections/worn-trumpet.jpg" alt="Medieval Brass Trumpet" onclick="openModal(this)">
-      <h3>Brass Trumpet</h3>
-      <p>From the Anthropology Collection — A replica model of a medieval brass trumpet.</p>
-      <p class="price">$29.95</p>
-      <button onclick="addToCart('Brass Trumpet')">Add Brass Trumpet to Cart</button>
-    </div>
-
-  </div>
-
-
+ 
   <div id="imageModal" class="modal">
     <div class="modal-content">
       <span class="close-modal" onclick="closeModal()">&times;</span>
@@ -167,6 +78,11 @@
     </div>
   </div>
 
+  <footer class="site-footer">
+    <p>&copy; Museum of History — Shop Directory</p>
+  </footer>
+
+  
   <script>
     function openModal(imgElement) {
       const modal = document.getElementById('imageModal');
@@ -191,15 +107,7 @@
       }
     }
   </script>
-    <section class="bottom-field panel" style="margin-top:28px;">
-      <p><em>This is a fictitious website created purely for academic purposes.</em> The images were generated with AI and curated, edited, and validated by a human.</p>
-    </section>
-
- 
-
-  <footer class="site-footer">
-    <p>&copy; Museum of History — Shop Directory</p>
-  </footer>
 </body>
 </html>
+
   
