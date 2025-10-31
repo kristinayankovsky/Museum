@@ -20,6 +20,7 @@
       <a href="login.html">Login</a>
       <a href="shop.html">Shop</a>
       <a href="cart.html">View Cart</a>
+      <button onclick="location.href='cart.html'" id="viewCartBtn">View Cart</button>
     </nav>
   </header>
 
@@ -35,6 +36,7 @@
           <h3>Bone Corset Busk Replica</h3>
           <p>From the Anthropology Collection — Discovered near castle ruins, made from carved and engraved bone.</p>
           <p class="price">$100.99</p>
+          <span class="qty-badge" aria-live="polite"></span>
           <button onclick="addToCart(this)"
             data-id="item001"
             data-name="Bone Corset Busk Replica"
@@ -50,6 +52,7 @@
           <h3>Sapphire Pendant</h3>
           <p>Inspired by artifacts from the Archaeology Collection, specifically the "Medieval Sapphire Pendant".</p>
           <p class="price">$140.50</p>
+          <span class="qty-badge" aria-live="polite"></span>
           <button onclick="addToCart(this)"
             data-id="item002"
             data-name="Sapphire Pendant"
@@ -66,6 +69,7 @@
           <h3>Rusted Iron Spear</h3>
           <p>Archaeology Collection — Replica of medieval spears used by knights.</p>
           <p class="price">$50.75</p>
+          <span class="qty-badge" aria-live="polite"></span>
           <button onclick="addToCart(this)"
            data-id="item003"
             data-name="Rusted Iron Spear"
@@ -80,6 +84,7 @@
           <h3>Brass Trumpet</h3>
           <p>From the Anthropology Collection — A replica model of a medieval brass trumpet.</p>
           <p class="price">$29.95</p>
+          <span class="qty-badge" aria-live="polite"></span>
           <button onclick="addToCart(this)"
              data-id="item004"
             data-name="Brass Trumpet"
@@ -110,6 +115,17 @@
 
   
   <script>
+    const CART_KEY = 'museumCartV1';
+
+    function readCart() {
+      try { return JSON.parse(localStorage.getItem(CART_KEY)) || []; }
+      catch { return []; }
+    }
+
+    function writeCart(cart) {
+      localStorage.setItem(CART_KEY, JSON.stringify(cart));
+    }
+
     function openModal(imgElement) {
       const modal = document.getElementById('imageModal');
       const modalImg = document.getElementById('modalImg');
@@ -122,8 +138,30 @@
       document.getElementById('imageModal').style.display = "none";
     }
 
-    function addToCart(itemName) {
-      alert(itemName + " added to cart!");
+    function addToCart(btn) {
+      const id = btn.dataset.id;
+      const name = btn.dataset.name;
+      const unitPrice = Number(btn.dataset.price);
+      const image = btn.dataset.image;
+
+      let cart = readCart();
+      const idx = cart.findIndex(it => it.id === id);
+      if (idx >= 0) {
+        cart[idx].qty += 1;
+      } else {
+        cart.push({ id, name, unitPrice, qty: 1, image });
+      }
+      writeCart(cart);
+
+     
+      const card = btn.closest('.souvenir-item');
+      if (card) {
+        const badge = card.querySelector('.qty-badge');
+        if (badge) {
+          const item = cart.find(it => it.id === id);
+          badge.textContent = item ? `Qty: ${item.qty}` : '';
+        }
+      }
     }
 
     window.onclick = function(event) {
