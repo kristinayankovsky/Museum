@@ -32,6 +32,9 @@
       <button id="clearCartBtn">Clear Cart</button>
       <button id="keepShoppingBtn" onclick="location.href='shop.html'">Keep Shopping</button>
     </div>
+     <section class="bottom-field panel">
+      <p><em>This is a fictitious website created purely for academic purposes.</em> The images were generated with AI and curated, edited, and validated by a human.</p>
+    </section>
   </main>
   <footer class="site-footer">
     <p>&copy; Museum of History — Shopping Cart</p>
@@ -120,14 +123,14 @@
 
       html += `
         <div class="summary">
-          <p>Subtotal of ItemTotals <span class="amt">$${itemTotal.toFixed(2)}</span></p>
-          <p>Volume Discount <span class="amt">(${volumeDiscount > 0 ? volumeDiscount.toFixed(2) : '0.00'})</span></p>
-          <p>Member Discount <span class="amt">(${memberDiscount > 0 ? memberDiscount.toFixed(2) : '0.00'})</span></p>
+          <p>Subtotal of Items: <span class="amt">$${itemTotal.toFixed(2)}</span></p>
+          <p>Volume Discount <span class="amt">(${volumeDiscount > 0 ? volumeDiscount.toFixed(2) : '$0.00'})</span></p>
+          <p>Member Discount <span class="amt">(${memberDiscount > 0 ? memberDiscount.toFixed(2) : '$0.00'})</span></p>
           <p>Shipping <span class="amt">$${SHIPPING_RATE.toFixed(2)}</span></p>
           <p>Subtotal (Taxable amount) <span class="amt">$${subtotalTaxable.toFixed(2)}</span></p>
           <p>Tax Rate % <span class="amt">${(TAX_RATE * 100).toFixed(2)}%</span></p>
           <p>Tax Amount $ <span class="amt">$${taxAmount.toFixed(2)}</span></p>
-          <h3>Invoice Total <span class="amt">$${invoiceTotal.toFixed(2)}</span></h3>
+          <h3>Cart Subtotal: <span class="amt">$${invoiceTotal.toFixed(2)}</span></h3>
         </div>`;
 
       cartContainer.innerHTML = html;
