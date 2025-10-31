@@ -29,9 +29,8 @@ body {
 
 
 
-.cart-controls {
-   margin-top: 10px;
-}
+
+
 
 .cart-controls {
   text-decoration: none;
@@ -182,4 +181,5 @@ a:hover {
     padding: 40px 16px;
   }
 }
+
 
