@@ -8,3 +8,140 @@
   <title>Museum Cart Checkout</title>
   <link rel="stylesheet" href="../css/style.css" />
 </head>
+<body>
+  <header class="hero small-hero">
+    <h1 class="site-title">Shopping Cart</h1>
+    <nav class="page-nav">
+      <a href="../index.html">Home</a>
+      <a href="staff.html">Staff</a>
+      <a href="collections.html">Collections</a>
+      <a href="shop.html">Shop</a>
+      <a href="login.html">Login</a>
+    </nav>
+  </header>
+   <main class="container">
+    <label>
+      <input type="checkbox" id="memberDiscountChk"> Member Discount (15%)
+    </label>
+
+    <div id="cartContainer" class="panel">
+ 
+    </div>
+
+    <div class="cart-controls">
+      <button id="clearCartBtn">Clear Cart</button>
+      <button id="keepShoppingBtn" onclick="location.href='shop.html'">Keep Shopping</button>
+    </div>
+  </main>
+  <footer class="site-footer">
+    <p>&copy; Museum of History — Shopping Cart</p>
+  </footer>
+
+  <script>
+    const CART_KEY = 'museumCartV1';
+    const TAX_RATE = 0.102;
+    const MEMBER_DISCOUNT_RATE = 0.15;
+    const SHIPPING_RATE = 25.00;
+    const VOLUME_DISCOUNT_TIERS = [
+      { min: 0, max: 49.99, rate: 0 },
+      { min: 50, max: 99.99, rate: 0.05 },
+      { min: 100, max: 199.99, rate: 0.10 },
+      { min: 200, max: Infinity, rate: 0.15 }
+    ];
+
+    function readCart() {
+      try { return JSON.parse(localStorage.getItem(CART_KEY)) || []; }
+      catch { return []; }
+    }
+
+    function writeCart(cart) {
+      localStorage.setItem(CART_KEY, JSON.stringify(cart));
+    }
+
+    function clearCart() {
+      localStorage.removeItem(CART_KEY);
+      render();
+    }
+
+    document.getElementById('clearCartBtn').addEventListener('click', clearCart);
+    document.getElementById('memberDiscountChk').addEventListener('change', render);
+
+   
+    function render() {
+      const cartContainer = document.getElementById('cartContainer');
+      const cart = readCart();
+
+      if (cart.length === 0) {
+        cartContainer.innerHTML = `<p>Your cart is empty.</p>`;
+        return;
+      }
+
+      let itemTotal = 0;
+      let html = `
+      <table class="cart-table">
+        <tr><th>Item</th><th>Qty</th><th>Unit Price</th><th>Line Total</th><th>Remove</th></tr>`;
+
+      cart.forEach((it, i) => {
+        const lineTotal = it.unitPrice * it.qty;
+        itemTotal += lineTotal;
+        html += `
+          <tr>
+            <td><img src="${it.image}" alt="${it.name}" style="width:50px;height:50px;"> ${it.name}</td>
+            <td>${it.qty}</td>
+            <td style="text-align:right;">$${it.unitPrice.toFixed(2)}</td>
+            <td style="text-align:right;">$${lineTotal.toFixed(2)}</td>
+            <td><button onclick="removeItem('${it.id}')">Remove</button></td>
+          </tr>`;
+      });
+
+      html += `</table>`;
+
+     
+      let volumeRate = 0;
+      for (const tier of VOLUME_DISCOUNT_TIERS) {
+        if (itemTotal >= tier.min && itemTotal <= tier.max) {
+          volumeRate = tier.rate;
+          break;
+        }
+      }
+
+      const memberApplied = document.getElementById('memberDiscountChk').checked;
+      let volumeDiscount = itemTotal * volumeRate;
+      let memberDiscount = memberApplied ? itemTotal * MEMBER_DISCOUNT_RATE : 0;
+
+      if (memberApplied && volumeRate > 0) {
+        alert("Only one discount can be applied. Member discount will be used.");
+        volumeDiscount = 0;
+      }
+
+      const subtotalTaxable = itemTotal - volumeDiscount - memberDiscount + SHIPPING_RATE;
+      const taxAmount = subtotalTaxable * TAX_RATE;
+      const invoiceTotal = subtotalTaxable + taxAmount;
+
+      html += `
+        <div class="summary">
+          <p>Subtotal of ItemTotals <span class="amt">$${itemTotal.toFixed(2)}</span></p>
+          <p>Volume Discount <span class="amt">(${volumeDiscount > 0 ? volumeDiscount.toFixed(2) : '0.00'})</span></p>
+          <p>Member Discount <span class="amt">(${memberDiscount > 0 ? memberDiscount.toFixed(2) : '0.00'})</span></p>
+          <p>Shipping <span class="amt">$${SHIPPING_RATE.toFixed(2)}</span></p>
+          <p>Subtotal (Taxable amount) <span class="amt">$${subtotalTaxable.toFixed(2)}</span></p>
+          <p>Tax Rate % <span class="amt">${(TAX_RATE * 100).toFixed(2)}%</span></p>
+          <p>Tax Amount $ <span class="amt">$${taxAmount.toFixed(2)}</span></p>
+          <h3>Invoice Total <span class="amt">$${invoiceTotal.toFixed(2)}</span></h3>
+        </div>`;
+
+      cartContainer.innerHTML = html;
+    }
+
+    function removeItem(id) {
+      let cart = readCart();
+      cart = cart.filter(it => it.id !== id);
+      writeCart(cart);
+      render();
+    }
+
+    render();
+    
+  </script>
+</body>
+</html>
