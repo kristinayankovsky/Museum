@@ -368,52 +368,58 @@ Cautionary note: confidence remains provisional. Residue and metallurgical testi
   </div>
 
   <script>
-    function showSection(section) {
-      const sections = document.querySelectorAll('.collection-section');
-      sections.forEach(s => s.style.display = 'none');
-      document.getElementById(section).style.display = 'block';
+    
+ 
+  function showSection(sectionId) {
+    const sections = document.querySelectorAll('.collection-section');
+    sections.forEach(s => s.style.display = 'none');
+    const target = document.getElementById(sectionId);
+    if(target) target.style.display = 'block';
+  }
+
+ 
+  (function() {
+    const modal = document.getElementById('modal');
+    const modalBody = document.getElementById('modal-body');
+    const closeBtn = modal.querySelector('.close-modal');
+    let lastTrigger = null;
+
+    function openModal(contentSelector, trigger) {
+      const content = document.querySelector(contentSelector);
+      if (!content) return console.warn("Modal content missing:", contentSelector);
+      modalBody.innerHTML = content.innerHTML;
+      modal.style.display = 'flex';
+      lastTrigger = trigger || null;
+      document.body.style.overflow = 'hidden';
+      closeBtn.focus();
     }
 
-    (function(){
-      const modal = document.getElementById('modal');
-      const modalBody = document.getElementById('modal-body');
-      const closeBtn = modal.querySelector('.close-modal');
-      let lastTrigger = null;
+    function closeModal() {
+      modal.style.display = 'none';
+      modalBody.innerHTML = '';
+      document.body.style.overflow = '';
+      if(lastTrigger) lastTrigger.focus();
+    }
 
-      function openFrom(selector, trigger){
-        const src = document.querySelector(selector);
-        if (!src) { console.warn('Missing modal content:', selector); return; }
-        modalBody.innerHTML = src.innerHTML;
-        modal.style.display = 'flex';
-        lastTrigger = trigger || null;
-        closeBtn.focus();
-        document.body.style.overflow = 'hidden';
+    document.addEventListener('click', e => {
+      const trigger = e.target.closest('[data-modal-target]');
+      if(trigger){
+        e.preventDefault();
+        openModal(trigger.getAttribute('data-modal-target'), trigger);
+        return;
       }
+      if(e.target === modal || e.target.closest('.close-modal')) closeModal();
+    });
 
-      function closeModal(){
-        modal.style.display = 'none';
-        modalBody.innerHTML = '';
-        document.body.style.overflow = '';
-        if (lastTrigger) lastTrigger.focus();
-      }
+    document.addEventListener('keydown', e => {
+      if(e.key === 'Escape' && modal.style.display === 'flex') closeModal();
+    });
+  })();
 
-      document.addEventListener('click', (e)=>{
-        const trigger = e.target.closest('[data-modal-target]');
-        if (trigger){
-          e.preventDefault();
-          openFrom(trigger.getAttribute('data-modal-target'), trigger);
-          return;
-        }
-        if (e.target === modal || e.target.closest('.close-modal')) closeModal();
-      });
-
-      document.addEventListener('keydown', (e)=>{
-        if (e.key === 'Escape' && modal.style.display === 'flex') closeModal();
-      });
-    })();
   </script>
 </body>
 </html>
+
 
 
 
