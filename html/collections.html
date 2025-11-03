@@ -11,12 +11,10 @@
   <meta name="robots" content="noindex, nofollow">
   <title>Collections — Museum of History</title>
   <style>
-  
-.submenu {
+    .submenu {
       text-align: center;
       margin: 1.5rem 0;
     }
-
     .submenu button {
       background-color: #90a4ae;
       border: none;
@@ -26,16 +24,14 @@
       color: white;
       cursor: pointer;
     }
-
     .submenu button:hover {
       background-color: #78909c;
     }
- .collection-section {
+    .collection-section {
       width: 85%;
       max-width: 1100px;
       margin: 0 auto 3rem auto;
     }
-
     .collection-section h1, h2 {
       font-size: 1.8rem;
       color: #1a237e;
@@ -43,7 +39,6 @@
       padding-bottom: 0.4rem;
       margin-bottom: 2rem;
     }
-
     .collection-item {
       display: flex;
       flex-wrap: wrap;
@@ -55,35 +50,62 @@
       border-radius: 10px;
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     }
-
     .artifact-img {
       width: 320px;
       height: auto;
       object-fit: cover;
       border-radius: 10px;
       margin: 1rem;
+      cursor: pointer;
     }
-
     .artifact-details {
       flex: 1;
       min-width: 280px;
       padding: 1rem;
       line-height: 1.6;
     }
-
     .artifact-details strong {
       color: #1a237e;
     }
-
-
-
-    
+    /* Modal styling */
+    .modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.6);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+    }
+    .modal-content {
+      background: #fff;
+      padding: 2rem;
+      border-radius: 10px;
+      max-width: 650px;
+      width: 90%;
+      max-height: 90%;
+      overflow-y: auto;
+      position: relative;
+      text-align: left;
+    }
+    .close-modal {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: #333;
+    }
   </style>
 </head>
-  
 
 <body>
-     <header class="hero small-hero">
+  <header class="hero small-hero">
     <h1 class="site-title">Museum of History</h1>
     <nav class="page-nav">
       <a href="../index.html">Home</a>
@@ -99,153 +121,165 @@
     <button onclick="showSection('anthropology')">Anthropology</button>
     <button onclick="showSection('histories')">Histories</button>
   </div>
+
   <main>
-    
     <section id="archaeology" class="collections-section">
       <h1>Archaeology</h1>
 
-      
       <div class="collection-item">
-        <img src="../images/collections/rusted-spear.jpg" alt="Rusted Iron Spearhead" class="artifact-img" />
-
+        <img src="../images/collections/rusted-spear.jpg" alt="Rusted Iron Spearhead" class="artifact-img open-modal" data-modal-target="#modal-text-spear" />
         <div class="artifact-details">
           <h2>Rusted Iron Spearhead</h2>
-          <p><strong>Material:</strong> Pure Iron with trace elements of other metals (Iron)</p>
-          <p><strong>Size/Weight/Shape:</strong> 25 cm, tapered, 300 grams</p>
+          <p><strong>Material:</strong> Pure Iron with trace elements of other metals</p>
           <p><strong>Estimated Age:</strong> ~1,600 years (Late Middle Ages)</p>
-          <p><strong>Preservation State:</strong> Corroded with flaking rust</p>
-          <p><strong>Location Found:</strong> Markovan battlefield, Ravni Plain (45.267 N, 21.902 E)</p>
-          <p><strong>Likely Purpose:</strong> Combat weapon</p>
-          <p><strong>Evidence of Use:</strong> Damage around tip and along edge</p>
-          <p><strong>Manufacture Clues:</strong>Forged with central ridge and notched base</p>
-          <p><strong>Found With:</strong> Charred wood, and leather fragments</p>
-          <p><strong>Burial or Habitat Context:</strong> Scattered at former settlement</p>
-          <p><strong>Symbolism:</strong> Associated with medieval knights  </p>
-          <p><strong>Comparison:</strong> Resembles spears from Markovic site</p>
+          <p><strong>Location Found:</strong> Markovan battlefield, Ravni Plain</p>
+          <p><strong>Purpose:</strong> Combat weapon</p>
         </div>
       </div>
 
-      
       <div class="collection-item">
-        <img src="../images/collections/old-jewel.jpg" alt="Medieval Pendant" class="artifact-img" />
-
+        <img src="../images/collections/old-jewel.jpg" alt="Medieval Sapphire Pendant" class="artifact-img open-modal" data-modal-target="#modal-text-pendant" />
         <div class="artifact-details">
           <h2>Medieval Sapphire Pendant</h2>
-          <p><strong>Material:</strong> Gold encrusted with rubies, and a showstopper sapphire</p>
-          <p><strong>Size/Weight/Shape:</strong> 6 cm diameter, oval pendant</p>
-          <p><strong>Estimated Age:</strong> ~170 years </p>
-          <p><strong>Preservation State:</strong> Tarnished gold surface, intact form</p>
-          <p><strong>Location Found:</strong> Castle ruins, Vienna, Austria></p>
-          <p><strong>Likely Purpose:</strong> Personal ornament, possibly worn by royalty</p>
-          <p><strong>Evidence of Use:</strong> Worn around edges, tarnished surface</p>
-          <p><strong>Manufacture Clues:</strong> Strong engraved features, historic masonary</p>
-          <p><strong>Found With:</strong>Tattered embriodered cloth, and other historic Austrian Jewels</p>
-          <p><strong>Burial or Habitat Context:</strong> Recovered from Castle ruins</p>
-          <p><strong>Symbolism:</strong> Strong masonary, and engravings, likely to present status</p>
-          <p><strong>Comparison:</strong> Resembles pendants from neighboring region (Prussia)</p>
+          <p><strong>Material:</strong> Gold, rubies, sapphire</p>
+          <p><strong>Estimated Age:</strong> ~170 years</p>
+          <p><strong>Location Found:</strong> Castle ruins, Vienna, Austria</p>
+          <p><strong>Purpose:</strong> Personal ornament</p>
         </div>
       </div>
 
-      
       <div class="collection-item">
-        <img src="../images/collections/rusty-sword.jpg" alt="Ancient Rusted Sword with Weathered Handle" class="artifact-img" />
-
+        <img src="../images/collections/rusty-sword.jpg" alt="Rusted Sword" class="artifact-img open-modal" data-modal-target="#modal-text-sword" />
         <div class="artifact-details">
           <h2>Rusted Sword</h2>
-          <p><strong>Material:</strong> Purely Iron </p>
-          <p><strong>Size/Weight/Shape:</strong> 30 cm tall, 12 cm diameter</p>
+          <p><strong>Material:</strong> Pure Iron</p>
           <p><strong>Estimated Age:</strong> 1,600 years</p>
-          <p><strong>Preservation State:</strong> severe rust due to purity of element, surface weathered, overall shape preserved</p>
           <p><strong>Location Found:</strong> Northern France</p>
-          <p><strong>Likely Purpose:</strong> Defence from wars/ status</p>
-          <p><strong>Evidence of Use:</strong> Chipped sides, strong weathering</p>
-          <p><strong>Manufacture Clues:</strong> Hand hammered and fired with unique masonary skills</p>
-          <p><strong>Found With:</strong> Metal armor fragments</p>
-          <p><strong>Burial or Habitat Context:</strong> Burial with armor pieces in thick layers of dirt indicating a burial plot for a knight</p>
-          <p><strong>Symbolism:</strong> Longsword symbolize knighthood</p>
-          <p><strong>Comparison:</strong> Similar artifact was found in Markovic site</p>
+          <p><strong>Purpose:</strong> Defense and Status Symbol</p>
         </div>
       </div>
     </section>
 
     <section id="anthropology" class="collection-section" style="display:none;">
       <h1>Anthropology</h1>
-
-      
       <div class="collection-item">
-        <img src="../images/collections/horse-skull.jpg" alt="Weathered Horse Skull" class="artifact-img" />
-
+        <img src="../images/collections/horse-skull.jpg" alt="Horse Skull" class="artifact-img" />
         <div class="artifact-details">
           <h2>Horse Skull</h2>
           <p><strong>Material:</strong> Animal Bone</p>
-          <p><strong>Size/Weight/Shape:</strong> 50cm, animal shaped</p>
           <p><strong>Estimated Age:</strong> 1,600 years</p>
-          <p><strong>Preservation State:</strong> Excellent bone preservation, all teeth intact</p>
-          <p><strong>Location Found:</strong> Hilltop burial mound, Austria site</p>
-          <p><strong>Likely Purpose:</strong> Used as transportation among the Medieval Ages</p>
-          <p><strong>Evidence of Use:</strong> Indication of a arrow like crack, likely resulted from a war</p>
-          <p><strong>Manufacture Clues:</strong> Organic</p>
-          <p><strong>Found With:</strong> Metal fragments</p>
-          <p><strong>Burial or Habitat Context:</strong> Humanized burial, beneath layers of dirt</p>
-          <p><strong>Symbolism:</strong> Represents the importance of horses and transportation among past civilivations</p>
-          <p><strong>Comparison:</strong> Identical finds among the same era</p>
-        </div>
-      </div>
-
-      
-      <div class="collection-item">
-        <img src="../images/collections/corset-busk.jpg" alt="Ancient Bone Carved Corset Busk" class="artifact-img" />
-
-        <div class="artifact-details">
-          <h2>Hand Carved Bone Corset Busk</h2>
-          <p><strong>Material:</strong> Animal bone</p>
-          <p><strong>Size/Weight/Shape:</strong> around 12 in/ oval shape</p>
-          <p><strong>Estimated Age:</strong> 1,500 years</p>
-          <p><strong>Preservation State:</strong> Perfect preservation, slight wear </p>
-          <p><strong>Location Found:</strong> Castle ruins, Spain</p>
-          <p><strong>Likely Purpose:</strong> Clothing, ceremonial use</p>
-          <p><strong>Evidence of Use:</strong> Signs of wear, and symbolic carving</p>
-          <p><strong>Manufacture Clues:</strong> Hand-carved with a etching tool</p>
-          <p><strong>Found With:</strong> Wooden comb</p>
-          <p><strong>Burial or Habitat Context:</strong> Found in a chest, excellent preservation</p>
-          <p><strong>Symbolism:</strong> In medieval times corsets where the fashion, a busk was often placed in front of the corset to stablize oneself,
-           also was used in secret romances as a lady would only give their busk to a romatic partner for them to etch</p>
-          <p><strong>Comparison:</strong> Similar textile style from similar times</p>
-        </div>
-      </div>
-
-      
-      <div class="collection-item">
-        <img src="../images/collections/worn-trumpet.jpg" alt="Worn Brass Trumpet" class="artifact-img" />
-
-        <div class="artifact-details">
-          <h2>Brass Trumpet</h2>
-          <p><strong>Material:</strong> Polished Brass </p>
-          <p><strong>Size/Weight/Shape:</strong> 40 cm tall</p>
-          <p><strong>Estimated Age:</strong> 1,000 years</p>
-          <p><strong>Preservation State:</strong> Minor erosion, features clear</p>
-          <p><strong>Location Found:</strong> England castle ruins</p>
-          <p><strong>Likely Purpose:</strong> Entertainment, musical instrument</p>
-          <p><strong>Evidence of Use:</strong> very tarnished traces along mouth</p>
-          <p><strong>Manufacture Clues:</strong> cast polished using masonary techniques</p>
-          <p><strong>Found With:</strong>  pottery shards</p>
-          <p><strong>Burial or Habitat Context:</strong> Found in sealed chest</p>
-          <p><strong>Symbolism:</strong> Believed to represent musical notes and to announce Events</p>
-          <p><strong>Comparison:</strong> Similar artifacts from the medieval era</p>
         </div>
       </div>
     </section>
-  
 
-  <section class="bottom-field panel" style="margin-top:28px;">
-      <p><em>This is a fictitious website created purely for academic purposes.</em> All images were generated with AI and curated, edited, and validated by a human.</p>
+   
+    <section id="histories" class="collection-section" style="display:none;">
+      <h1>Histories</h1>
+
+      <div class="collection-item">
+        <img src="../images/collections/rusted-spear.jpg" alt="Rusted Spear" class="artifact-img" />
+        <div class="artifact-details">
+          <h2>Rusted Iron Spearhead — Exhibit Label</h2>
+          <p>Rusted Iron Spear — Markovan Battlefield (item003)
+Material: Pure iron with trace elements
+Estimated Age: ~1,600 years (Late Middle Ages)
+Location Found: Markovan battlefield, Ravni Plain (45.267 N, 21.902 E)
+Likely Purpose: Combat weapon (spear)
+
+This iron spear was recovered from a scatter of martial debris on the Ravni Plain—an area identified in field notes as a former settlement and conflict zone. The object’s composition (predominantly pure iron with trace metals) and its corroded, flaking surface testify to both the technological choices of the period (iron as a primary weapon material) and prolonged burial in oxygen- and moisture-variable soils. Physical degradation—surface pitting and layered rust—indicates extensive post-depositional weathering rather than modern damage, suggesting long-term interment in the landscape of battle and abandonment.
+
+Typologically, the spear resembles other Markovic site finds, pointing toward a regional weapon form used in close-combat or for formation defense. Its plain functional design and absence of elaborate ornamentation suggest a practical implement of warfare rather than a strictly ceremonial object. Within medieval social contexts, such weapons were instruments of both survival and social standing: a spear could mark a person as a combatant and, by extension, as someone embedded in the political/military networks of their time.
+
+Interpreting this object as a historian–mythographer, the spear forms part of a layered narrative. In oral memory and later mythic retellings, such blades and points become tokens of heroism, sacrifice, or communal loss. When found among settlement debris rather than a formal burial, the spear’s story leans toward sudden abandonment or chaotic retreat—moments in which the ordinary object becomes charged with social meaning.
+
+Cautionary note: confidence is moderate. While stylistic comparisons with Markovic finds strengthen the typological reading, absence of associated inscriptions or direct stratigraphic markers limits definitive attribution. The physical evidence—rust flaking, edge wear, and residual soil—serves as our primary source. Any interpretive claims about particular owners, named battles, or singular mythic roles remain hypothetical. This object’s value lies in how its wear and context invite us to reconstruct the human actions and ephemeral narratives of a long-vanished moment.</p>
+        </div>
+      </div>
+
+      <div class="collection-item">
+        <img src="../images/collections/old-jewel.jpg" alt="Medieval Pendant" class="artifact-img" />
+        <div class="artifact-details">
+          <h2>Medieval Sapphire Pendant — Exhibit Label</h2>
+          <p>Medieval Sapphire Pendant — Vienna Castle Ruins (item002)
+Material: Gold inlay with central sapphire and surrounding rubies
+Estimated Age: ~170 years
+Location Found: Castle ruins, Vienna, Austria
+Likely Purpose: Personal ornament, possibly worn by nobility
+
+This pendant, recovered from the ruins of a Viennese castle, is a compact example of late-regional jewelry where material luxury intersects with social symbolism. Composed of gold encrusted with rubies and set with a prominent sapphire, the object bears smooth, worn edges and a tarnished surface—physical evidence of prolonged contact with garments and skin. These tangible traces suggest the pendant was not purely display; rather, it was worn, handled, and integrated into daily ceremonial life.
+
+The sapphire at the center historically carried associations of truth, moral clarity, and protection—qualities desirable for nobility whose public roles demanded both status and ideological legitimacy. Surrounding rubies and the geometric engraving visible in the goldwork point toward an artisan tradition shared across central Europe; stylistic parallels with Prussian pieces suggest cross-regional exchange or influence, though the pendant’s exact workshop remains undetermined.
+
+As historian and mythographer working with Dr. Mary Sand, I emphasize the pendant’s role as a narrative device in aristocratic identity-making. Jewelry in this period frequently encoded family stories, alliances, or devotional associations. Found among other carved masonry and domestic debris in the castle, the pendant likely belonged to an individual enmeshed in localized mythic registers—family origin stories, patron saint devotion, or lineage narratives that justified social rank.
+
+Interpretive caution is necessary: the pendant’s recovery from disturbed ruin complicates a fully secure provenance. Slight disturbance in the find spot introduces uncertainty about whether the item was lost, hidden during conflict, or interred intentionally as a votive. Still, the physical wear and the sophistication of materials point to a life in close proximity to elite performance—ceremonial dress, courtly display, and intimate devotion.
+
+This object invites us to consider how small, wearable things act as portable storybooks: the pendant’s gems and engravings would have signaled statements about identity and belief, and its worn finish now preserves the touch of those who carried that story forward.</p>
+        </div>
+      </div>
+
+      <div class="collection-item">
+        <img src="../images/collections/rusty-sword.jpg" alt="Rusted Sword" class="artifact-img" />
+        <div class="artifact-details">
+          <h2>Rusted Sword — Exhibit Label</h2>
+          <p>Rusted Sword — Northern France Burial (item004)
+Material: Pure iron
+Estimated Age: ~1,600 years
+Location Found: Burial plot, Northern France
+Likely Purpose: Defense/Status (longsword)
+
+This iron longsword was recovered from a funerary context in northern France, where it lay among armor fragments and other grave goods. The blade is characterized by pronounced corrosion, plastic loss of metal along the edges (chipping), and deep surface pitting—features that document both battlefield use and prolonged burial in moisture-rich soils. Found in a thick stratigraphic packing of grave debris, the sword appears to belong to a curated burial of a martial individual, likely of knightly or warrior status.
+
+Functional reading: the sword’s form matches typologies associated with defensive arms used in the early medieval period. Its chipped sides and edge wear suggest sharpening, resharpening, and frontline use, aligning with evidence that such pieces served both practical combat roles and signifiers of social identity. The burial context—an artifact interred with armor fragments—speaks to ritualized practices in which weapons accompany their owners into death, signaling honor, social role, or the symbolic retirement of martial potency.
+
+From a mythographic standpoint, swords in this cultural horizon are often invested with archetypal meanings—symbols of divine favor, justice, or heroism. The association with knightly motifs and the presence in a funerary assemblage invite interpretations that connect material evidence with legendary narratives: the sword becomes a focal object in stories of duty, oath, and memory.
+
+Cautionary note: confidence remains provisional. Residue and metallurgical testing are pending, and until such analyses are complete, precise forging methods, alloy traces, and possible decorative elements cannot be asserted. Comparative similarity to Markovic artifacts supports regional typology but cannot confirm direct origins. Nevertheless, the burial association and the sword’s physical state provide a robust basis for understanding this piece as a material trace of knighthood and the ritualized remembrance of martial life.</p>
+        </div>
+      </div>
     </section>
-
   </main>
 
   <footer class="site-footer">
     <p>&copy; Museum of History — Collections</p>
   </footer>
+
+
+  <div class="modal-item" id="modal-text-spear" hidden>
+    <h2 id="modal-title">Rusted Iron Spear — Interpretation</h2>
+    <p>Discovered on the Ravni Plain battlefield (45.267 N, 21.902 E), this rusted iron spear (catalog: item003) is composed of primarily pure iron with trace metals and shows extensive surface corrosion and flaking rust. 
+      Estimated at ~1,600 years old (Late Middle Ages), it was most likely used as a combat weapon—its design resembling documented spears from the nearby Markovic deposits. 
+      Corrosion and flaking indicate long-term burial and exposure to shifting soil chemistry at a former settlement; these physical properties suggest functional use rather than purely ceremonial manufacture. 
+      Interpreting this object with Dr. Mary Sand’s mythographic approach, the spear becomes part of a martial narrative: a tool of defense, a signifier of allegiance, and a fragment of battlefield memory. 
+      Evidence is moderate in confidence—contextual similarity to Markovic spears supports typology, but exact personal associations are unknown. Please treat this object with respect; its wear and corrosion are essential traces of its life and use.</p>
+  </div>
+
+  <div class="modal-item" id="modal-text-pendant" hidden>
+    <h2 id="modal-title">Medieval Sapphire Pendant — Interpretation</h2>
+    <p>Recovered from castle ruins in Vienna, this gold pendant—centered on a sapphire and accented with rubies (catalog: item002)—displays worn edges and a tarnished surface consistent with prolonged exposure and intimate use. 
+      Estimated at ~170 years old, its form and strong engraved features point to aristocratic ownership; the pendant plausibly functioned as personal ornament tied to status or familial identity. 
+      The sapphire’s cultural associations with truth and divine favor, and the setting’s continental-style engraving suggest links with neighboring Prussian craftsmanship. 
+      Because the pendant was recovered from disturbed castle ruins, provenance is slightly uncertain; yet the physical wear—edge smoothing and surface tarnish—supports an extended lifetime of handling and display. 
+      Read as narrative object, the pendant functions as a portable emblem within noble myth-making: a marker of lineage, belief, and public identity, its worn finish recording decades of human touch and social performance.</p>
+  </div>
+
+  <div class="modal-item" id="modal-text-sword" hidden>
+    <h2 id="modal-title">Rusted Sword — Interpretation</h2>
+    <p>Recovered from a burial plot in northern France (catalog: item004), this iron longsword exhibits heavy corrosion, chipped sides, and strong weathering consistent with long-term burial. 
+      Estimated at ~1,600 years old and found in association with armor fragments, the sword likely served both defensive and status functions for a knightly individual. 
+      Its placement within a layered burial context indicates ritualized deposition—an intentional interment of a warrior’s accoutrements. 
+      As interpreted through a mythographic lens, the sword embodies archetypal themes of knighthood, honor, and the transition from martial life to memory. Scientific testing (residue analysis) is still pending; 
+      until that data arrives, metallurgical origin and forging technique remain provisional. Physically, the sword’s chipped edges and corrosion preserve traces of use and gravesoil, 
+      and together they anchor the artifact in the lived—and mythologized—experience of early medieval combat and burial practice.</p>
+  </div>
+
+  
+  <div class="modal" id="modal" style="display:none" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="modal-content">
+      <button class="close-modal" aria-label="Close">x</button>
+      <div id="modal-body"></div>
+    </div>
+  </div>
 
   <script>
     function showSection(section) {
@@ -253,13 +287,48 @@
       sections.forEach(s => s.style.display = 'none');
       document.getElementById(section).style.display = 'block';
     }
+
+    (function(){
+      const modal = document.getElementById('modal');
+      const modalBody = document.getElementById('modal-body');
+      const closeBtn = modal.querySelector('.close-modal');
+      let lastTrigger = null;
+
+      function openFrom(selector, trigger){
+        const src = document.querySelector(selector);
+        if (!src) { console.warn('Missing modal content:', selector); return; }
+        modalBody.innerHTML = src.innerHTML;
+        modal.style.display = 'flex';
+        lastTrigger = trigger || null;
+        closeBtn.focus();
+        document.body.style.overflow = 'hidden';
+      }
+
+      function closeModal(){
+        modal.style.display = 'none';
+        modalBody.innerHTML = '';
+        document.body.style.overflow = '';
+        if (lastTrigger) lastTrigger.focus();
+      }
+
+      document.addEventListener('click', (e)=>{
+        const trigger = e.target.closest('[data-modal-target]');
+        if (trigger){
+          e.preventDefault();
+          openFrom(trigger.getAttribute('data-modal-target'), trigger);
+          return;
+        }
+        if (e.target === modal || e.target.closest('.close-modal')) closeModal();
+      });
+
+      document.addEventListener('keydown', (e)=>{
+        if (e.key === 'Escape' && modal.style.display === 'flex') closeModal();
+      });
+    })();
   </script>
-
-
-  
-  
 </body>
 </html>
+
 
 
 
